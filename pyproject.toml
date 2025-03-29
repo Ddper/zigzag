@@ -1,0 +1,23 @@
+[project]
+name = "zigzag"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+authors = [
+    { name = "will.yang", email = "iyangsg@gmail.com" }
+]
+requires-python = ">=3.12"
+dependencies = [
+    "openai>=1.67.0",
+    "pydantic>=2.10.6",
+    "pydantic-settings>=2.8.1",
+    "python-dotenv>=1.1.0",
+    "tavily-python>=0.5.2",
+]
+
+[project.scripts]
+zigzag = "zigzag:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
