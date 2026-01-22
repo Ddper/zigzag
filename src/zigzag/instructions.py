@@ -51,7 +51,9 @@ def _generate_react_instructions(
         instructions.append("## Available Tools")
         for tool in tools:
             tool_name = getattr(tool, 'name', str(tool))
-            tool_desc = getattr(tool, 'description', '')
+            tool_desc = getattr(tool, 'description', 'No description available')
+            if not tool_desc:  # Handle empty string case
+                tool_desc = 'No description available'
             instructions.append(f"- **{tool_name}**: {tool_desc}")
         instructions.append("")
     
@@ -93,7 +95,9 @@ def _generate_generic_instructions(
         instructions.append("## Available Tools")
         for tool in tools:
             tool_name = getattr(tool, 'name', str(tool))
-            tool_desc = getattr(tool, 'description', '')
+            tool_desc = getattr(tool, 'description', 'No description available')
+            if not tool_desc:  # Handle empty string case
+                tool_desc = 'No description available'
             instructions.append(f"- **{tool_name}**: {tool_desc}")
         instructions.append("")
     
