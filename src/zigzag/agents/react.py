@@ -66,6 +66,11 @@ class ReActAgent:
         
         Returns:
             Formatted instruction string
+        
+        Note:
+            Import is done inside the method to avoid circular dependency issues
+            and to allow instructions generation without requiring environment 
+            variables for settings.
         """
         from zigzag.instructions import generate_chat_instructions
         return generate_chat_instructions("react", self.tools)
