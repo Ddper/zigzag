@@ -60,6 +60,16 @@ class ReActAgent:
         tool_names = ",".join([tool.name for tool in tools])
         self.messages = [{"role": "system", "content": self.template.format(tool_desc=tool_desc, tool_names=tool_names)}]
 
+    def get_chat_instructions(self) -> str:
+        """
+        Generate chat instructions for this ReAct agent.
+        
+        Returns:
+            Formatted instruction string
+        """
+        from zigzag.instructions import generate_chat_instructions
+        return generate_chat_instructions("react", self.tools)
+
     def call_llm(self) -> Dict[str, str | Dict[str, str]]:
         response = self.client.chat.completions.create(
             model=settings.openai_model_name,
